@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: candidates
+    volumes:
+      - ./mysql/00-create_database.sql:/docker-entrypoint-initdb.d/00-create_database.sql
+    ports:
+      - "3306:3306"
+
+  candidate_app:
+    container_name: candidate_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: release_image
+    environment:
+      MYSQL_HOST: mysqldb
+    depends_on:
+      - mysqldb
+    ports:
+      - "8080:8080"
+
+networks:
+  my-network:
