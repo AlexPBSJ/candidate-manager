@@ -47,6 +47,23 @@ public class CandidatoService {
         return candidatoRepository.save(candidato);
     }
 
+    public Candidato update(Long id, CandidatoInput candidatoDTO){
+        Descricao descricao = Descricao.basedOnValue(candidatoDTO.profissao());
+        if(descricao == null){
+            throw new IllegalArgumentException("Profissao nao existe");
+        }
+
+        Optional<Profissao> byDescricao = profissaoRepository.findByDescricao(descricao);
+
+        if(byDescricao.isEmpty()){
+            throw new IllegalArgumentException("Profissao nao existe");
+        }
+
+        Candidato candidato = new Candidato(id, candidatoDTO, byDescricao.get());
+
+        return candidatoRepository.save(candidato);
+    }
+
     public void deleteById(Long id){
         candidatoRepository.deleteById(id);
     }

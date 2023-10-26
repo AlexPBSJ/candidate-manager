@@ -35,6 +35,15 @@ public class Candidato {
         this.profissao = profissao;
     }
 
+    public Candidato(Long id, CandidatoInput candidatoInput, Profissao profissao) {
+        this.id = id;
+        this.nome = candidatoInput.nome();
+        this.contacto = candidatoInput.contacto();
+        this.idade = candidatoInput.idade();
+        this.morada = candidatoInput.morada();
+        this.profissao = profissao;
+    }
+
     public Long getId() {
         return id;
     }

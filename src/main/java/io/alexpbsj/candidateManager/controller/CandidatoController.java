@@ -32,7 +32,7 @@ public class CandidatoController {
 
     @PutMapping("/editar/{id}")
     public Candidato updateCandidato(@PathVariable Long id, @RequestBody CandidatoInput candidato){
-        return candidatoService.save(candidato);
+        return candidatoService.update(id, candidato);
     }
 
     @DeleteMapping("/apagar/{id}")
