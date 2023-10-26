@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestor de candidatos</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+</head>
+<body>
+    <h1>Gestor de Candidatos</h1>
+    <form id="createForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" required>
+
+        <label for="contact">Contacto:</label>
+        <input type="text" id="contact" required>
+
+        <label for="age">Idade:</label>
+        <input type="number" id="age" required>
+
+        <label for="address">Morada:</label>
+        <input type="text" id="address" required>
+
+        <label for="profissao">Profissão:</label>
+        <select id="profissao">
+            <option value="Estudante">Estudante</option>
+            <option value="Desempregado">Desempregado</option>
+            <option value="Trabalhador por conta de outrem">Trabalhador por conta de outrem</option>
+            <option value="Trabalhador por conta propria">Trabalhador por conta própria</option>
+            <option value="Outro">Outro</option>
+        </select>
+
+        <button onclick="submitForm()">Adicionar Candidato</button>
+    </form>
+
+
+                <form style="display: none;" id="updateForm" action="/">
+                    <label for="idUp" id="idUp"></label>
+                    <label for="nameUp">Nome:</label>
+                    <input type="text" id="nameUp" required>
+
+                    <label for="contactUp">Contacto:</label>
+                    <input type="text" id="contactUp" required>
+
+                    <label for="ageUp">Idade:</label>
+                    <input type="number" id="ageUp" required>
+
+                    <label for="addressUp">Morada:</label>
+                    <input type="text" id="addressUp" required>
+
+                    <label for="profissaoUp">Profissão:</label>
+                    <select id="profissaoUp">
+                        <option value="Estudante">Estudante</option>
+                        <option value="Desempregado">Desempregado</option>
+                        <option value="Trabalhador por conta de outrem">Trabalhador por conta de outrem</option>
+                        <option value="Trabalhador por conta propria">Trabalhador por conta própria</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+
+                    <button onclick="updateCandidate()">Gravar</button>
+                </form>
+
+    <h2>Candidatos</h2>
+    <button onclick="getCandidates()">Show</button>
+    <table id="tab1"></table>
+    <script src="script.js"></script>
+</body>
+</html>
