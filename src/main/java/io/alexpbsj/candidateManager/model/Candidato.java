@@ -23,9 +23,7 @@ public class Candidato {
     @JoinColumn(name = "profissao_id")
     private Profissao profissao;
 
-    public Candidato() {
-
-    }
+    public Candidato() {}
 
     public Candidato(CandidatoInput candidatoInput, Profissao profissao) {
         this.nome = candidatoInput.nome();
