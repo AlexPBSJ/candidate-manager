@@ -39,7 +39,7 @@ public class CandidatoService {
         Optional<Profissao> byDescricao = profissaoRepository.findByDescricao(descricao);
 
         if(byDescricao.isEmpty()){
-            throw new IllegalArgumentException("Is empty");
+            throw new IllegalArgumentException("Profissao nao existe");
         }
 
         Candidato candidato = new Candidato(candidatoDTO, byDescricao.get());
