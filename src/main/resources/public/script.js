@@ -22,7 +22,7 @@ function submitForm() {
     });
 };
 
-function getCandidates(){
+function getCandidates(){ 
     fetch('noesis/candidatos', {
         method: 'GET',
         headers: {
